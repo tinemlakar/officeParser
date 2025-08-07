@@ -1,11 +1,3 @@
-const supportedExtensions = [
-    "docx",
-    "pptx",
-    "xlsx",
-    "odt",
-    "odp",
-    "ods",
-    "pdf"
-];
+const supportedExtensions = ["docx", "pptx", "xlsx", "odt", "odp", "ods"];
 
 module.exports = supportedExtensions;

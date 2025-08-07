@@ -1,5 +1,6 @@
-# officeParser
+# officeParser-min
 A Node.js library to parse text out of any office file. 
+A fork from harashhankur/officeParse but without bulky PDF parsing features.
 
 ### Supported File Types
 
@@ -9,31 +10,6 @@ A Node.js library to parse text out of any office file.
 - [`odt`](https://en.wikipedia.org/wiki/OpenDocument)
 - [`odp`](https://en.wikipedia.org/wiki/OpenDocument)
 - [`ods`](https://en.wikipedia.org/wiki/OpenDocument)
-- [`pdf`](https://en.wikipedia.org/wiki/PDF)
-
-
-#### Update
-* 2024/11/12 - Added ArrayBuffer as a type of file input. Generating bundle files now which exposes namespace officeParser to be able to access parseOffice and parseOfficeAsync directly on the browser. Extracting text out of pdf files does not work currently in browser bundles.
-* 2024/10/21 - Replaced extracting zip files from decompress to yauzl. This means that we now extract files in memory and we no longer need to write them to disk. Removed config flags related to extracted files. Added flags for CLI execution.
-* 2024/10/15 - Fixed erroring out while deleting temp files when multiple worker threads make parallel executions resulting in same file name for multiple files. Fixed erroring out when multiple executions are made without waiting for the previous execution to finish which resulted in deleting the file from other execution. Upgraded dependencies.
-* 2024/10/13 - Fixed parsing text from xlsx files which contain no shared strings file and files which have inlineStr based strings.
-* 2024/05/06 - Replaced pdf parsing support from pdf-parse library to natively building it using pdf.js library from Mozilla by analyzing its output. Added pdfjs-dist build as a local library.
-* 2023/11/25 - Fixed error catching when an error occurs within the parsing of a file, especially after decompressing it. Also fixed the problem with parallel parsing of files as we were using only timestamp in file names.
-* 2023/10/24 - Revamped content parsing code. Fixed order of content in files, especially in word files where table information would always land up at the end of the text. Added config object as argument for parseOffice which can be used to set new line delimiter and multiple other configurations. Added support for parsing pdf files using the popular npm library pdf-parse. Removed support for individual file parsing functions.
-* 2023/04/26 - Added support for file buffers as argument for filepath for parseOffice and parseOfficeAsync
-* 2023/04/07 - Added typings to methods to help with Typescript projects.
-* 2022/12/28 - Added command line method to use officeParser with or without installing it and instantly get parsed content on the console.
-* 2022/12/10 - Fixed memory leak issues, bugs related to parsing open document files and improved error handling.
-* 2021/11/21 - Added promise way to existing callback functions.
-* 2020/06/01 - Added error handling and console.log enable/disable methods. Default is set at enabled. Everything backward compatible.
-* 2019/06/17 - Added method to change location for decompressing office files in places with restricted write access.
-* 2019/04/30 - Removed case sensitive file extension bug. File names with capital lettered extensions now supported.
-* 2019/04/23 - Added support for open office files *.odt, *.odp, *.ods through parseOffice function. Created a new method parseOpenOffice for those who prefer targetted functions. 
-* 2019/04/23 - Added feature to delete the generated dist folder after function callback.
-* 2019/04/22 - Added parseOffice method to avoid confusion between type of file and their extension.
-* 2019/04/22 - Added file extension validations. Removed errors for excel files with no drawing elements.
-* 2019/04/19 - Support added for *.xlsx files.
-* 2019/04/18 - Support added for *.pptx files.
 
 
 
